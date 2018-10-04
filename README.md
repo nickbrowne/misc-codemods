@@ -60,3 +60,32 @@ filter(["a", "b", "c"], (item) => {
 
 </td></tr>
 </table>
+
+## localise-underscore-call-expression-imports.js
+
+Converts global usage of underscore functions in the call expression syntax to local imports of each individual function.
+
+<table>
+<tr><th>Before</th><th>After</th></tr>
+<tr><td>
+
+```js
+_([1, 2, 3]).each((item) => {
+  console.log(item);
+});
+
+```
+
+</td><td>
+
+```js
+import { each } from "underscore";
+
+each([1, 2, 3], (item) => {
+  console.log(item);
+});
+
+```
+
+</td></tr>
+</table>
