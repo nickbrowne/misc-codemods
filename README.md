@@ -22,13 +22,40 @@ const FOO = "bar";
 import VideoPlayer from "lib/video_player";
 ```
 
-</td><td>  
-    
+</td><td>
+
 ```js
 import Abacus from "lib/abacus";
 import VideoPlayer from "lib/video_player";
 
 const FOO = "bar";
+```
+
+</td></tr>
+</table>
+
+## localise-underscore-imports.js
+
+Converts global usage of underscore functions to local imports of each individual function. Would be fairly easy to adapt to lodash if necessary.
+
+<table>
+<tr><th>Before</th><th>After</th></tr>
+<tr><td>
+
+```js
+_.filter(["a", "b", "c"], (item) => {
+  return item == "b";
+});
+```
+
+</td><td>
+
+```js
+import { filter } from "underscore";
+
+filter(["a", "b", "c"], (item) => {
+  return item == "b";
+});
 ```
 
 </td></tr>
